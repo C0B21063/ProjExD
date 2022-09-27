@@ -54,4 +54,6 @@ if __name__ == "__main__":
             break
     end = time.time()
     print(f"time:{(end - sta):.2f}秒")
-        
+    
+
+    
