@@ -1,5 +1,5 @@
 import random
-import datetime
+import time
 
 num = 10
 nnum = 2
@@ -12,6 +12,7 @@ def syutudai(alpha):
         print(c, end="")
     print("")
     print("表示文字:")
+    random.shuffle(taisyo)
     kesson = random.sample(taisyo,nnum)
     for c in taisyo:
         if c not in kesson:
@@ -38,6 +39,7 @@ def kotae(kesson):
 
 
 if __name__ == "__main__":
+    sta = time.time()
     alpha = [chr(i+65) for i in range(26)]
     for i in range(num_try):
         kesson = syutudai(alpha)
@@ -47,4 +49,6 @@ if __name__ == "__main__":
             print("-"*20)
         else:
             break
+    end = time.time()
+    print(f"time:{(end - sta):.2f}秒")
         
