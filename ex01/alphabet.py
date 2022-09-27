@@ -56,4 +56,7 @@ if __name__ == "__main__":
     print(f"time:{(end - sta):.2f}秒")
     
 
+
+
+
     
