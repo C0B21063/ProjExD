@@ -7,6 +7,12 @@ def button_click(event):
     #tkm.showinfo("",f"{num}のボタンがクリックされました。")
     entry.insert(tk.END, num)
 
+def eql_click(event):
+    eql = entry.get()
+    res = eval(eql)
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, res)
+
 root = tk.Tk()
 root.geometry("300x600")
 
@@ -28,14 +34,24 @@ for i in range(9,-1,-1):
         r += 1
         c = 0
 
-ano_btn = tk.Button(root,
+#ここから手作業
+pls_btn = tk.Button(root,
                     text = "+",
                     font = ("times New Roman", 30),
                     width = 4,
                     height = 2
                     )
-ano_btn.bind("<1>", button_click)
-ano_btn.grid(row = 4, column = 1)
+pls_btn.bind("<1>", button_click)
+pls_btn.grid(row = 4, column = 1)
+
+eql_btn = tk.Button(root,
+                    text = "=",
+                    font = ("times New Roman", 30),
+                    width = 4,
+                    height = 2
+                    )
+eql_btn.bind("<1>", eql_click)
+eql_btn.grid(row = 4, column = 2)
 
 root.mainloop()
 
