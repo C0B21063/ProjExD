@@ -27,5 +27,15 @@ for i in range(9,-1,-1):
     if i % 3 == 1:
         r += 1
         c = 0
-    
+
+ano_btn = tk.Button(root,
+                    text = "+",
+                    font = ("times New Roman", 30),
+                    width = 4,
+                    height = 2
+                    )
+ano_btn.bind("<1>", button_click)
+ano_btn.grid(row = 4, column = 1)
+
 root.mainloop()
+
