@@ -53,22 +53,12 @@ def high(event):
     high.geometry("300x300")
 
     #小数点ボタン
-    eql_btn = tk.Button(high,
-                        text = ".",
-                        font = ("times New Roman", 30),
-                        width = w,
-                        height = h
-                        )
+    eql_btn = tk.Button(high, text = ".", font = ("times New Roman", 30), width = w, height = h)
     eql_btn.bind("<1>", button_click)
     eql_btn.grid(row = 0, column = 0)
 
     #%ボタン
-    eql_btn = tk.Button(high,
-                        text = "%",
-                        font = ("times New Roman", 30),
-                        width = w,
-                        height = h
-                        )
+    eql_btn = tk.Button(high, text = "%", font = ("times New Roman", 30), width = w, height = h)
     eql_btn.bind("<1>", per_click)
     eql_btn.grid(row = 0, column = 1)
 
