@@ -9,7 +9,6 @@ def button_click(event):
     #tkm.showinfo("",f"{num}のボタンがクリックされました。")
     entry.insert(tk.END, num)
 
-
 def eql_click(event):
     eql = entry.get()
     res = eval(eql)
@@ -22,10 +21,9 @@ def ac_click(event):
     entry.delete(0, tk.END)
 
 
-
 root = tk.Tk()
 root.title("電卓")
-root.geometry("400x600")
+root.geometry("400x650")
 
 memo_win = tk.Tk()
 memo_win.title("履歴")
@@ -60,7 +58,7 @@ cle_btn = tk.Button(root,
 cle_btn.bind("<1>", ac_click)
 cle_btn.grid(row = 0, column = 3)
 
-#+ボタン
+#四則演算ボタン
 pls_lis = ["+", "-", "/", "*"]
 for i in range(4):
     pls_btn = tk.Button(root,
@@ -71,6 +69,16 @@ for i in range(4):
                         )
     pls_btn.bind("<1>", button_click)
     pls_btn.grid(row = 1 + i, column = 3)
+
+#小数点ボタン
+eql_btn = tk.Button(root,
+                    text = ".",
+                    font = ("times New Roman", 30),
+                    width = w,
+                    height = h
+                    )
+eql_btn.bind("<1>", button_click)
+eql_btn.grid(row = 4, column = 1)
 
 #=ボタン
 eql_btn = tk.Button(root,
