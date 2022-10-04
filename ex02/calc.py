@@ -35,6 +35,7 @@ for i in range(9,-1,-1):
         c = 0
 
 #ここから手作業
+#+ボタン
 pls_btn = tk.Button(root,
                     text = "+",
                     font = ("times New Roman", 30),
@@ -44,6 +45,7 @@ pls_btn = tk.Button(root,
 pls_btn.bind("<1>", button_click)
 pls_btn.grid(row = 4, column = 1)
 
+#=ボタン
 eql_btn = tk.Button(root,
                     text = "=",
                     font = ("times New Roman", 30),
