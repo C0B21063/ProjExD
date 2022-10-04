@@ -45,7 +45,7 @@ root.geometry("400x650")
 #履歴窓
 memo_win = tk.Tk()
 memo_win.title("履歴")
-memo_win.geometry("300x300")
+memo_win.geometry("180x180")
 
 #other窓
 def high(event):
