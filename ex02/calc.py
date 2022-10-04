@@ -9,6 +9,9 @@ def button_click(event):
     #tkm.showinfo("",f"{num}のボタンがクリックされました。")
     entry.insert(tk.END, num)
 
+def pai_click(event):
+    entry.insert(tk.END, 3.14)
+
 def eql_click(event):
     eql = entry.get()
     res = eval(eql)
@@ -28,7 +31,6 @@ def per_click(event):
     memo.grid()
     entry.delete(0, tk.END)
     entry.insert(tk.END, per_res)
-
 
 root = tk.Tk()
 root.title("電卓")
@@ -62,7 +64,15 @@ def high(event):
     eql_btn.bind("<1>", per_click)
     eql_btn.grid(row = 0, column = 1)
 
-
+    #πボタン
+    pai_btn = tk.Button(high,
+                        text = "π",
+                        font = ("times New Roman", 30),
+                        width = w,
+                        height = h
+                        )
+    pai_btn.bind("<1>", pai_click)
+    pai_btn.grid(row = 0, column = 2)
 
 entry = tk.Entry(root, justify = "right", width = 10, font = ("Times New Roman", 40))
 entry.grid(row = 0, column = 0, columnspan = 3)
