@@ -3,15 +3,18 @@ import tkinter.messagebox as tkm
 
 w,h = 4, 2#ボタンの縦横の長さ
 
+#数字等が押されたとき
 def button_click(event):
     btn = event.widget
     num = btn["text"]
     #tkm.showinfo("",f"{num}のボタンがクリックされました。")
     entry.insert(tk.END, num)
 
+#πが押されたとき
 def pai_click(event):
     entry.insert(tk.END, 3.14)
 
+#＝が押されたとき
 def eql_click(event):
     eql = entry.get()
     res = eval(eql)
@@ -20,9 +23,11 @@ def eql_click(event):
     entry.delete(0, tk.END)
     entry.insert(tk.END, res)
 
+#ACが押されたとき
 def ac_click(event):
     entry.delete(0, tk.END)
 
+#％が押された時
 def per_click(event):
     eql = entry.get()
     res = eval(eql)
@@ -32,14 +37,17 @@ def per_click(event):
     entry.delete(0, tk.END)
     entry.insert(tk.END, per_res)
 
+#メイン窓
 root = tk.Tk()
 root.title("電卓")
 root.geometry("400x650")
 
+#履歴窓
 memo_win = tk.Tk()
 memo_win.title("履歴")
 memo_win.geometry("300x300")
 
+#other窓
 def high(event):
     high = tk.Tk()
     high.geometry("300x300")
