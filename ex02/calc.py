@@ -29,10 +29,26 @@ memo_win = tk.Tk()
 memo_win.title("履歴")
 memo_win.geometry("300x300")
 
+def high(event):
+    high = tk.Tk()
+    high.geometry("300x300")
+
+    #小数点ボタン
+    eql_btn = tk.Button(high,
+                        text = ".",
+                        font = ("times New Roman", 30),
+                        width = w,
+                        height = h
+                        )
+    eql_btn.bind("<1>", button_click)
+    eql_btn.grid(row = 0, column = 0)
+
+
+
 entry = tk.Entry(root, justify = "right", width = 10, font = ("Times New Roman", 40))
 entry.grid(row = 0, column = 0, columnspan = 3)
 
-r,c = 0,0
+r,c = 0,2
 for i in range(9,-1,-1):
     button = tk.Button(root,
                     text = f"{i}",
@@ -42,9 +58,11 @@ for i in range(9,-1,-1):
                     )
     button.bind("<1>", button_click)
     button.grid(row = r + 1, column = c)
-    c += 1
+    c -= 1
     if i % 3 == 1:
         r += 1
+        c = 2
+    if i == 1:
         c = 0
 
 #ここから手作業
@@ -59,7 +77,7 @@ cle_btn.bind("<1>", ac_click)
 cle_btn.grid(row = 0, column = 3)
 
 #四則演算ボタン
-pls_lis = ["+", "-", "/", "*"]
+pls_lis = ["/", "*", "-", "+"]
 for i in range(4):
     pls_btn = tk.Button(root,
                         text = f"{pls_lis[i]}",
@@ -70,14 +88,14 @@ for i in range(4):
     pls_btn.bind("<1>", button_click)
     pls_btn.grid(row = 1 + i, column = 3)
 
-#小数点ボタン
+#高機能ボタン
 eql_btn = tk.Button(root,
-                    text = ".",
+                    text = "other",
                     font = ("times New Roman", 30),
                     width = w,
                     height = h
                     )
-eql_btn.bind("<1>", button_click)
+eql_btn.bind("<1>", high)
 eql_btn.grid(row = 4, column = 1)
 
 #=ボタン
