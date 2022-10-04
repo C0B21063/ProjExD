@@ -20,6 +20,15 @@ def eql_click(event):
 def ac_click(event):
     entry.delete(0, tk.END)
 
+def per_click(event):
+    eql = entry.get()
+    res = eval(eql)
+    per_res = res * 0.01
+    memo = tk.Label(memo_win, text = f"{eql}={per_res}", font = ("Times New Roman", 10))
+    memo.grid()
+    entry.delete(0, tk.END)
+    entry.insert(tk.END, per_res)
+
 
 root = tk.Tk()
 root.title("電卓")
@@ -42,6 +51,16 @@ def high(event):
                         )
     eql_btn.bind("<1>", button_click)
     eql_btn.grid(row = 0, column = 0)
+
+    #%ボタン
+    eql_btn = tk.Button(high,
+                        text = "%",
+                        font = ("times New Roman", 30),
+                        width = w,
+                        height = h
+                        )
+    eql_btn.bind("<1>", per_click)
+    eql_btn.grid(row = 0, column = 1)
 
 
 
@@ -89,14 +108,14 @@ for i in range(4):
     pls_btn.grid(row = 1 + i, column = 3)
 
 #高機能ボタン
-eql_btn = tk.Button(root,
+oth_btn = tk.Button(root,
                     text = "other",
                     font = ("times New Roman", 30),
                     width = w,
                     height = h
                     )
-eql_btn.bind("<1>", high)
-eql_btn.grid(row = 4, column = 1)
+oth_btn.bind("<1>", high)
+oth_btn.grid(row = 4, column = 1)
 
 #=ボタン
 eql_btn = tk.Button(root,
