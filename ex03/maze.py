@@ -38,7 +38,7 @@ def main_proc():
             mx -= 1
     canv.coords("tori", cx, cy)
 
-    if mx == 13 and my == 7:
+    if mx == gx and my == gy:
         state = 2
         canv.create_text(750, 450, text="finish", font=("", 30))
 
@@ -59,6 +59,7 @@ if __name__ == "__main__":
     mx, my = 1, 1
     cx = mx * 100 + 50
     cy = my * 100 + 50
+    gx, gy = 13, 7
     canv.create_image(cx, cy, image = tori, tag = "tori")
 
     state = 0
