@@ -2,7 +2,8 @@ import tkinter as tk
 import maze_maker as mm
 
 def key_down(event):
-    global key
+    global key, state
+    state = 1
     key = event.keysym
 
 
@@ -14,6 +15,7 @@ def key_up(event):
 def main_proc():
     global cx, cy
     global mx, my
+    global state, num_tori
     if key == "Up":
         my -= 1
     if key == "Down":
@@ -35,6 +37,13 @@ def main_proc():
         if key == "Right":
             mx -= 1
     canv.coords("tori", cx, cy)
+
+    if mx == 13 and my == 7:
+        state = 2
+    
+    if state == 2:
+        canv.create_text(750, 450, text="finish", font=("", 30))
+
     root.after(100, main_proc)
 
 
@@ -46,14 +55,16 @@ if __name__ == "__main__":
     canv.pack()
 
     maze_lst = mm.make_maze(15, 9)
-    mm.show_maze(canv, maze_lst)
+    mm.show_maze(canv, maze_lst);
 
-    tori = tk.PhotoImage(file = "fig/5.png")
+    tori = tk.PhotoImage(file = "fig/3.png")
     mx, my = 1, 1
     cx = mx * 100 + 50
     cy = my * 100 + 50
     canv.create_image(cx, cy, image = tori, tag = "tori")
 
+    state = 0
+    tmr = 0
     key = "" #現在押されているキーを表す
 
     root.bind("<KeyPress>", key_down)
