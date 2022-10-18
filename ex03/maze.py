@@ -40,8 +40,6 @@ def main_proc():
 
     if mx == 13 and my == 7:
         state = 2
-    
-    if state == 2:
         canv.create_text(750, 450, text="finish", font=("", 30))
 
     root.after(100, main_proc)
