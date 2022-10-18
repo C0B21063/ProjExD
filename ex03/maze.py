@@ -12,7 +12,8 @@ def key_up(event):
 
 
 def main_proc():
-    global cx, cy, mx, my
+    global cx, cy
+    global mx, my
     if key == "Up":
         my -= 1
     if key == "Down":
@@ -21,8 +22,18 @@ def main_proc():
         mx -= 1
     if key == "Right":
         mx += 1
-    cx = mx * 100 + 50
-    cy = my * 100 + 50
+    if maze_lst[my][mx] == 0:
+        cx = mx * 100 + 50
+        cy = my * 100 + 50
+    else: #壁なら
+        if key == "Up":
+            my += 1
+        if key == "Down":
+            my -= 1
+        if key == "Left":
+            mx += 1
+        if key == "Right":
+            mx -= 1
     canv.coords("tori", cx, cy)
     root.after(100, main_proc)
 
