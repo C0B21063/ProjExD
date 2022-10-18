@@ -10,5 +10,7 @@ if __name__ == "__main__":
     tori = tk.PhotoImage(file = "fig/5.png")
     cx, cy = 300, 400
     canv.create_image(cx, cy, image = tori, tag = "tori")
+
+    key = "" #現在押されているキーを表す
     
     root.mainloop()
