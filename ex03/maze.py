@@ -4,7 +4,6 @@ import maze_maker as mm
 def key_down(event):
     global key
     key = event.keysym
-    print(key)
 
 
 def key_up(event):
@@ -43,5 +42,7 @@ if __name__ == "__main__":
     root.bind("<KeyRelease>", key_up)
 
     main_proc()
+
+    maze_lst = mm.make_maze(15, 9)
     
     root.mainloop()
