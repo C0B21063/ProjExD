@@ -44,5 +44,6 @@ if __name__ == "__main__":
     main_proc()
 
     maze_lst = mm.make_maze(15, 9)
+    mm.show_maze(canv, maze_lst)
     
     root.mainloop()
