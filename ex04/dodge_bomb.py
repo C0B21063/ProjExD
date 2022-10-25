@@ -12,6 +12,7 @@ def check_bound(obj_rct, scr_rct):#obj_ret:鳥rct, 弾rct
     return yoko, tate
 
 
+
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     scrn_sfc = pg.display.set_mode((1600,900))
