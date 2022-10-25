@@ -44,18 +44,26 @@ def main():
                 return
 
         key_state = pg.key.get_pressed()
-        if key_state[pg.K_UP]: tori_rct.centery -= 1
-        if key_state[pg.K_DOWN]: tori_rct.centery += 1
-        if key_state[pg.K_LEFT]: tori_rct.centerx -= 1
-        if key_state[pg.K_RIGHT]: tori_rct.centerx += 1
+        if key_state[pg.K_UP]:
+            tori_rct.centery -= 1
+        if key_state[pg.K_DOWN]:
+            tori_rct.centery += 1
+        if key_state[pg.K_LEFT]:
+            tori_rct.centerx -= 1
+        if key_state[pg.K_RIGHT]:
+            tori_rct.centerx += 1
 
         yoko, tate = check_bound(tori_rct, scrn_rct)
         if yoko == -1:
-            if key_state[pg.K_LEFT]: tori_rct.centerx += 1
-            if key_state[pg.K_RIGHT]: tori_rct.centerx -= 1
+            if key_state[pg.K_LEFT]:
+                tori_rct.centerx += 1
+            if key_state[pg.K_RIGHT]:
+                tori_rct.centerx -= 1
         if tate == -1:
-            if key_state[pg.K_UP]: tori_rct.centery += 1
-            if key_state[pg.K_DOWN]: tori_rct.centery -= 1
+            if key_state[pg.K_UP]:
+                tori_rct.centery += 1
+            if key_state[pg.K_DOWN]:
+                tori_rct.centery -= 1
 
         scrn_sfc.blit(tori_sfc, tori_rct)
 
@@ -65,6 +73,9 @@ def main():
 
         bomb_rct.move_ip(vx, vy)
         scrn_sfc.blit(bomb_sfc, bomb_rct)
+
+        if tori_rct.colliderect(bomb_rct):
+            return
 
         pg.display.update()
 
