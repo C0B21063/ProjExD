@@ -1,5 +1,6 @@
 import pygame as pg
 import sys
+from random import randint
 
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
@@ -12,6 +13,13 @@ def main():
     tori_sfc = pg.transform.rotozoom(tori_sfc, 0, 2.0)
     tori_rct = tori_sfc.get_rect()
     tori_rct.center = 900, 400
+
+    bomb_sfc = pg.Surface((20,20))
+    bomb_sfc.set_colorkey((0, 0, 0))
+    pg.draw.circle(bomb_sfc, (255, 0, 0), (10, 10), 5)
+    bomb_rct = bomb_sfc.get_rect()
+    bomb_rct.centerx = randint(0, 1600)
+    bomb_rct.centery = randint(0, 900)
 
     clock = pg.time.Clock()
 
@@ -33,6 +41,9 @@ def main():
             tori_rct.centerx += 1
 
         scrn_sfc.blit(tori_sfc, tori_rct)
+
+        scrn_sfc.blit(bomb_sfc, bomb_rct)
+
         pg.display.update()
 
         clock.tick(1000)
