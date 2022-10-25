@@ -9,7 +9,16 @@ def main():
     bg_rct = bg_sfc.get_rect()
 
     clock = pg.time.Clock()
-    clock.tick(0.5)
+
+    while True:
+        scrn_sfc.blit(bg_sfc, bg_rct)
+        pg.display.update()
+
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                return
+
+        clock.tick(1000)
 
 
 if __name__ == "__main__":
